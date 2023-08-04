@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,45 +10,47 @@
     <h1 style="color:white"> This is Sneha's Page. I will practice some HTML and CSS here. </h1>
     <h2 style="color:whitesmoke"> Where is ISS now?! Click anywhere to get update in realtime!</h2>
 </header>
+
 <body style="background-image: url('./images/iss.jpg'); background-repeat: no-repeat; background-attachment: fixed;
 background-size: cover;"">
-   <section id="displayISS" style="display: block; color:cornsilk"> 
-        <h3 id="timestamp"></h3>
-        <h3 id="lat"></h3>
-        <h3 id="long"></h3>
+   <section id=" displayISS" style="display: block; color:cornsilk">
+    <h3 id="timestamp"></h3>
+    <h3 id="lat"></h3>
+    <h3 id="long"></h3>
 
-   </section> 
-   
+    </section>
+
     <script>
-        
-        window.addEventListener("click", function() {
-            fetch("http://api.open-notify.org/iss-now.json").then(function(response) {
-            response.json().then(function(data) {
-                console.log(data);
-                const display = document.getElementById("displayISS");
-                const timestamp = document.getElementById("timestamp");
-                const latitude = document.getElementById("lat");
-                const longitude = document.getElementById("long");
 
-               
+        window.addEventListener("click", function () {
+            fetch("http://api.open-notify.org/iss-now.json").then(function (response) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    const display = document.getElementById("displayISS");
+                    const timestamp = document.getElementById("timestamp");
+                    const latitude = document.getElementById("lat");
+                    const longitude = document.getElementById("long");
+
+
                     timestamp.innerHTML = `UNIX TIMESTAMP: ${data.timestamp}`;
-                    latitude.innerHTML = `CURRENT LATITUDE: ${data.iss_position.latitude}` ;
+                    latitude.innerHTML = `CURRENT LATITUDE: ${data.iss_position.latitude}`;
                     longitude.innerHTML = `CURRENT LONGITUDE: ${data.iss_position.longitude}`;
-                        
-                    
-                   
-                    
-              
-            });
+
+
+
+
+
+                });
             });
         });
-  
-        </script>
+
+    </script>
 
 
 
 </body>
 <footer>
-<p style="color:white">&copy; 2023 Sneha Chitre</p>
+    <p style="color:white">&copy; 2023 Sneha Chitre</p>
 </footer>
+
 </html>
